@@ -2,7 +2,7 @@
 
 
 ## 🌐 Live Demo
-🔗 **[View My Portfolio](https://your-portfolio-link.com)**
+🔗 **[View My Portfolio]([https://your-portfolio-link.com](https://shriram-walawalkar-123.github.io/Portfolio/))**
 
 ---
 
@@ -26,17 +26,10 @@ The goal is simple: **make a strong first impression** on potential clients, rec
 | Category     | Tools Used |
 |--------------|------------|
 | **Frontend** | HTML, CSS, JavaScript |
-| **Frameworks** | React / Tailwind CSS *(replace if different)* |
+| **Frameworks** | React|
 | **Version Control** | Git, GitHub |
-| **Deployment** | Vercel / Netlify / GitHub Pages |
+| **Deployment** | Vercel / GitHub Pages |
 
----
-
-## 📸 Preview
-![Portfolio Screenshot](screenshot.png)  
-*(Add `screenshot.png` to your repo to display a preview here)*
-
----
 
 ---
 
