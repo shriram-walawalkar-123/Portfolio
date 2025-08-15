@@ -1,0 +1,1064 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shriram Walawalkar - Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f8fafc;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #4facfe, #00f2fe);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            font-size: 48px;
+            font-weight: bold;
+            color: white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 30px;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .contact-links a {
+            color: white;
+            text-decoration: none;
+            padding: 12px 24px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+
+        .contact-links a:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        /* Navigation */
+        nav {
+            background: white;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            padding: 20px 0;
+            flex-wrap: wrap;
+        }
+
+        nav li {
+            margin: 0 15px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #4a5568;
+            font-weight: 600;
+            padding: 10px 20px;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover, nav a.active {
+            background: #667eea;
+            color: white;
+        }
+
+        /* Sections */
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #2d3748;
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            border-radius: 2px;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-text {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            transform: translateY(0);
+            transition: transform 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        /* Experience Section */
+        .experience {
+            background: white;
+        }
+
+        .experience-card {
+            background: #f8fafc;
+            padding: 40px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            border-left: 5px solid #667eea;
+            transition: all 0.3s ease;
+        }
+
+        .experience-card:hover {
+            transform: translateX(5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .exp-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .exp-title {
+            font-size: 1.4rem;
+            color: #2d3748;
+            font-weight: 700;
+        }
+
+        .exp-date {
+            color: #718096;
+            font-weight: 600;
+            background: #e2e8f0;
+            padding: 5px 15px;
+            border-radius: 20px;
+        }
+
+        .exp-company {
+            color: #667eea;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+        }
+
+        .exp-description {
+            color: #4a5568;
+            line-height: 1.8;
+        }
+
+        .exp-description ul {
+            padding-left: 20px;
+        }
+
+        .exp-description li {
+            margin: 10px 0;
+        }
+
+        .exp-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .exp-link {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .exp-link:hover {
+            background: #5a67d8;
+            transform: translateY(-2px);
+        }
+
+        .exp-link.certificate {
+            background: #48bb78;
+        }
+
+        .exp-link.certificate:hover {
+            background: #38a169;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+        }
+
+        .project-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .project-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .project-tech {
+            opacity: 0.9;
+            font-size: 0.9rem;
+        }
+
+        .project-content {
+            padding: 30px;
+        }
+
+        .project-description {
+            color: #4a5568;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .project-features {
+            margin-bottom: 20px;
+        }
+
+        .project-features ul {
+            padding-left: 20px;
+        }
+
+        .project-features li {
+            color: #4a5568;
+            margin: 8px 0;
+        }
+
+        .project-link {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .project-link:hover {
+            background: #5a67d8;
+            transform: translateY(-2px);
+        }
+
+        /* Skills Section - Enhanced */
+        .skills {
+            background: linear-gradient(135deg, #f8fafc 0%, #e8f2ff 100%);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+        }
+
+        .skill-category {
+            background: white;
+            padding: 35px;
+            border-radius: 25px;
+            text-align: center;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 60px rgba(0,0,0,0.15);
+        }
+
+        .skill-category::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+        }
+
+        .skill-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 2rem;
+            color: white;
+        }
+
+        .skill-category h3 {
+            color: #2d3748;
+            margin-bottom: 25px;
+            font-size: 1.4rem;
+            font-weight: 700;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+        }
+
+        .skill-tag {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 10px 18px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .skill-tag:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        /* Certifications Section - New */
+        .certifications {
+            background: #f8fafc;
+        }
+
+        .certifications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+
+        .certification-card {
+            background: white;
+            padding: 35px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: all 0.3s ease;
+            border-top: 5px solid #667eea;
+        }
+
+        .certification-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+        }
+
+        .cert-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 2.5rem;
+            color: white;
+        }
+
+        .cert-title {
+            font-size: 1.3rem;
+            color: #2d3748;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .cert-issuer {
+            color: #667eea;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .cert-description {
+            color: #4a5568;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        .cert-link {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .cert-link:hover {
+            background: #5a67d8;
+            transform: translateY(-2px);
+        }
+
+        /* Achievements Section */
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .achievement-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            border-left: 4px solid #667eea;
+            transition: all 0.3s ease;
+        }
+
+        .achievement-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .achievement-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        /* Footer */
+        footer {
+            background: #2d3748;
+            color: white;
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .footer-content a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .footer-content a:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+
+            .exp-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .exp-links {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Animation for section visibility */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-on-scroll {
+            animation: fadeInUp 0.6s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="hero-content">
+                <div class="profile-img">SW</div>
+                <h1>Shriram Walawalkar</h1>
+                <p>Full Stack Developer | MERN Stack Specialist | Problem Solver</p>
+                <div class="contact-links">
+                    <a href="mailto:swalawalkar30@gmail.com">📧 Email</a>
+                    <a href="tel:8446455414">📱 +91 8446455414</a>
+                    <a href="https://www.linkedin.com/in/shriram-walawalkar-a59244263/" target="_blank">💼 LinkedIn</a>
+                    <a href="https://github.com/shriram-walawalkar-123?tab=repositories" target="_blank">💻 GitHub</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#experience" class="nav-link">Experience</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#certifications" class="nav-link">Certifications</a></li>
+                <li><a href="#achievements" class="nav-link">Achievements</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3 style="color: #667eea; margin-bottom: 20px;">Computer Science Engineering Student</h3>
+                    <p style="margin-bottom: 20px; color: #4a5568;">
+                        I'm a passionate B.Tech CSE student at Walchand College of Engineering with a strong foundation in full-stack development. 
+                        Currently maintaining an 8.14/10 CGPA while actively working on real-world projects that make a difference.
+                    </p>
+                    <p style="color: #4a5568;">
+                        My expertise lies in MERN stack development, having successfully deployed live applications that serve actual users. 
+                        I'm particularly interested in creating solutions that bridge technology gaps in rural and underserved communities.
+                    </p>
+                </div>
+                <div class="stats">
+                    <div class="stat-card">
+                        <div class="stat-number">8.14/10</div>
+                        <div>Current CGPA</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">950+</div>
+                        <div>LeetCode Problems</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">2★</div>
+                        <div>CodeChef Rating</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">700+</div>
+                        <div>GeeksforGeeks Problems</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience">
+        <div class="container">
+            <h2 class="section-title">Professional Experience</h2>
+            <div class="experience-card">
+                <div class="exp-header">
+                    <div>
+                        <div class="exp-title">Web Developer (College-Sponsored Project)</div>
+                        <div class="exp-company">Zilla Parishad Sangli - Government Initiative</div>
+                    </div>
+                    <div class="exp-date">March 2025</div>
+                </div>
+                <div class="exp-description">
+                    <p style="margin-bottom: 15px; font-weight: 600; color: #667eea; font-size: 1.1rem;">
+                        🚀 Developed and deployed a live MERN stack web portal empowering Women Self-Help Groups across Sangli district
+                    </p>
+                    <div style="background: #e8f4fd; padding: 20px; border-radius: 10px; margin-bottom: 20px; border-left: 4px solid #667eea;">
+                        <h4 style="color: #2d3748; margin-bottom: 10px;">🎯 Project Impact:</h4>
+                        <p style="color: #4a5568; margin-bottom: 10px;">Created a comprehensive digital platform for Mahila Bachat Gats (Women Self-Help Groups), enabling them to showcase products, promote events, and access government training programs - directly impacting rural women entrepreneurs across the district.</p>
+                    </div>
+                    <h4 style="color: #2d3748; margin-bottom: 15px;">🔧 Key Responsibilities & Achievements:</h4>
+                    <ul>
+                        <li><strong>Full-Stack Development:</strong> Built complete MERN stack application with React.js frontend, Node.js/Express backend, and MongoDB database</li>
+                        <li><strong>Product Catalog System:</strong> Implemented dynamic product management allowing SHGs to add, edit, and showcase their handmade products with image uploads</li>
+                        <li><strong>Event Management:</strong> Developed event/training promotion system connecting SHGs with government programs and skill development initiatives</li>
+                        <li><strong>Deployment & Optimization:</strong> Successfully deployed on Hostinger with performance optimizations for rural internet conditions</li>
+                        <li><strong>Responsive Design:</strong> Ensured cross-browser compatibility and mobile-first design for accessibility across all devices</li>
+                        <li><strong>User Experience:</strong> Designed intuitive UI/UX considering the target audience's technical literacy levels</li>
+                    </ul>
+                </div>
+                <div class="exp-links">
+                    <a href="http://zpsangliumed.in" target="_blank" class="exp-link">🌐 Visit Live Website</a>
+                    <a href="https://drive.google.com/file/d/1clDzVsIfYvh2HyzQime2mcfDFj1CjMCo/view" target="_blank" class="exp-link certificate">📋 ZP Certificate</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-title">E-Commerce Platform</div>
+                        <div class="project-tech">MongoDB | Express.js | React.js | Node.js</div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-description">
+                            A full-featured e-commerce platform with comprehensive admin dashboard and secure payment processing.
+                        </div>
+                        <div class="project-features">
+                            <h4 style="margin-bottom: 10px; color: #2d3748;">Key Features:</h4>
+                            <ul>
+                                <li>Complete admin dashboard for product and user management</li>
+                                <li>Integrated Stripe payment gateway for secure transactions</li>
+                                <li>Redux-based state management with persistent shopping cart</li>
+                                <li>Role-based access control and user authentication</li>
+                                <li>Order tracking and profile management system</li>
+                            </ul>
+                        </div>
+                        <a href="https://shrifrontend.vercel.app/" class="project-link">View Live Demo</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-title">College Club Management App</div>
+                        <div class="project-tech">React Native | Expo | MongoDB</div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-description">
+                            A mobile application designed to streamline college club management and enhance event publicity.
+                        </div>
+                        <div class="project-features">
+                            <h4 style="margin-bottom: 10px; color: #2d3748;">Key Features:</h4>
+                            <ul>
+                                <li>Multi-role system (Students, Club Admins, Event Organizers)</li>
+                                <li>Real-time event updates and notifications</li>
+                                <li>Comprehensive club details and event history</li>
+                                <li>Redux Toolkit for efficient state management</li>
+                                <li>Cross-platform mobile compatibility</li>
+                            </ul>
+                        </div>
+                        <a href="https://github.com/shriram-walawalkar-123?tab=repositories" class="project-link">View on GitHub</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2 class="section-title">Technical Expertise</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <div class="skill-icon">💻</div>
+                    <h3>Programming Languages</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">C++</span>
+                        <span class="skill-tag">C</span>
+                        <span class="skill-tag">HTML5</span>
+                        <span class="skill-tag">CSS3</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <div class="skill-icon">🌐</div>
+                    <h3>Frontend Development</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">React.js</span>
+                        <span class="skill-tag">Redux</span>
+                        <span class="skill-tag">React Native</span>
+                        <span class="skill-tag">Responsive Design</span>
+                        <span class="skill-tag">Tailwind</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <div class="skill-icon">⚙️</div>
+                    <h3>Backend Development</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Node.js</span>
+                        <span class="skill-tag">Express.js</span>
+                        <span class="skill-tag">RESTful APIs</span>
+                        <span class="skill-tag">JWT Auth</span>
+                        <span class="skill-tag">Middleware</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <div class="skill-icon">🗄️</div>
+                    <h3>Database Systems</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">MongoDB</span>
+                        <span class="skill-tag">MySQL</span>
+                        <span class="skill-tag">Redis</span>
+                        <span class="skill-tag">Database Design</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <div class="skill-icon">🛠️</div>
+                    <h3>Development Tools</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">VS Code</span>
+                        <span class="skill-tag">Git & GitHub</span>
+                        <span class="skill-tag">Postman</span>
+                        <span class="skill-tag">Expo CLI</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <div class="skill-icon">☁️</div>
+                    <h3>Deployment & Cloud</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Hostinger</span>
+                        <span class="skill-tag">Vercel</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications" class="certifications">
+        <div class="container">
+            <h2 class="section-title">Certifications</h2>
+            <div class="certifications-grid">
+                <div class="certification-card">
+                    <div class="cert-icon">🏛️</div>
+                    <div class="cert-title">Zilla Parishad Sangli Certificate</div>
+                    <div class="cert-issuer">Government of Maharashtra</div>
+                    <div class="cert-description">
+                        Official Certificate of Appreciation for developing and deploying a live MERN-stack web portal for Mahila Bachat Gats (Women Self-Help Groups) empowering rural women entrepreneurs across Sangli district.
+                    </div>
+                    <a href="https://drive.google.com/file/d/1clDzVsIfYvh2HyzQime2mcfDFj1CjMCo/view" target="_blank" class="cert-link">View Certificate</a>
+                </div>
+                <div class="certification-card">
+                    <div class="cert-icon">🍃</div>
+                    <div class="cert-title">MongoDB Certificate</div>
+                    <div class="cert-issuer">GFG</div>
+                    <div class="cert-description">
+                        Professional certification demonstrating proficiency in MongoDB database design, implementation, and management. Covers advanced concepts including aggregation, indexing, and performance optimization.
+                    </div>
+                    <a href="https://drive.google.com/file/d/17Ufu4_zhmeS_hijCztd-_4k1eszXUT9C/view?usp=sharing" target="_blank" class="cert-link">View Certificate</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Section -->
+<section id="achievements" class="achievements">
+        <div class="container">
+            <h2 class="section-title">Achievements & Recognition</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 50px; margin-bottom: 50px;">
+                <!-- Academic Excellence -->
+                <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 40px; border-radius: 25px; text-align: center; box-shadow: 0 15px 40px rgba(102, 126, 234, 0.3);">
+                    <div style="font-size: 3.5rem; margin-bottom: 20px;">🎓</div>
+                    <h3 style="font-size: 1.8rem; margin-bottom: 20px; font-weight: 700;">Academic Excellence</h3>
+                    <div style="background: rgba(255,255,255,0.2); padding: 20px; border-radius: 15px; margin-bottom: 20px;">
+                        <div style="font-size: 2rem; font-weight: bold; margin-bottom: 10px;">8.14/10</div>
+                        <div>Current CGPA</div>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; text-align: center;">
+                        <div style="flex: 1;">
+                            <div style="font-size: 1.4rem; font-weight: bold;">99.37</div>
+                            <div style="font-size: 0.9rem; opacity: 0.9;">MHT-CET</div>
+                        </div>
+                        <div style="flex: 1;">
+                            <div style="font-size: 1.4rem; font-weight: bold;">93.25</div>
+                            <div style="font-size: 0.9rem; opacity: 0.9;">JEE-MAINS</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Real-World Impact -->
+                <div style="background: white; padding: 40px; border-radius: 25px; box-shadow: 0 15px 40px rgba(0,0,0,0.1); border: 2px solid #667eea;">
+                    <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2.5rem; color: white; margin: 0 auto 25px;"> 🏆</div>
+                    <h3 style="color: #2d3748; margin-bottom: 20px; font-size: 1.6rem; text-align: center; font-weight: 700;">Government Project Success</h3>
+                    <div style="color: #4a5568; line-height: 1.7; text-align: center; margin-bottom: 20px;">
+                        Built and deployed a live MERN stack portal for <strong style="color: #667eea;">Zilla Parishad Sangli</strong>, empowering Women Self-Help Groups across the district
+                    </div>
+                    <div style="background: #f0f8ff; padding: 15px; border-radius: 10px; border-left: 4px solid #667eea;">
+                        <strong style="color: #667eea;">🎯 Impact:</strong> Directly serving rural women entrepreneurs with digital tools for business growth
+                    </div>
+                </div>
+            </div>
+
+            <!-- Competitive Programming & Problem Solving -->
+            <div style="background: linear-gradient(135deg, #48bb78 0%, #38a169 100%); padding: 50px; border-radius: 25px; color: white; margin-bottom: 50px; box-shadow: 0 20px 60px rgba(72, 187, 120, 0.3);">
+                <h3 style="text-align: center; font-size: 2rem; margin-bottom: 40px; font-weight: 700;">💻 Competitive Programming Excellence</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px;">
+                    <div style="text-align: center; background: rgba(255,255,255,0.2); padding: 25px; border-radius: 15px;">
+                        <div style="font-size: 2.5rem; font-weight: bold; margin-bottom: 10px;">950+</div>
+                        <div style="font-size: 1.1rem; margin-bottom: 5px;">LeetCode Problems</div>
+                        <div style="font-size: 0.9rem; opacity: 0.9;">Daily Practice</div>
+                    </div>
+                    <div style="text-align: center; background: rgba(255,255,255,0.2); padding: 25px; border-radius: 15px;">
+                        <div style="font-size: 2.5rem; font-weight: bold; margin-bottom: 10px;">2⭐</div>
+                        <div style="font-size: 1.1rem; margin-bottom: 5px;">CodeChef Rating</div>
+                        <div style="font-size: 0.9rem; opacity: 0.9;">Consistent Performer</div>
+                    </div>
+                    <div style="text-align: center; background: rgba(255,255,255,0.2); padding: 25px; border-radius: 15px;">
+                        <div style="font-size: 2.5rem; font-weight: bold; margin-bottom: 10px;">700+</div>
+                        <div style="font-size: 1.1rem; margin-bottom: 5px;">GeeksforGeeks</div>
+                        <div style="font-size: 0.9rem; opacity: 0.9;">Problems Solved</div>
+                    </div>
+                    <div style="text-align: center; background: rgba(255,255,255,0.2); padding: 25px; border-radius: 15px;">
+                        <div style="font-size: 2.5rem; font-weight: bold; margin-bottom: 10px;">150+</div>
+                        <div style="font-size: 1.1rem; margin-bottom: 5px;">CodeForces</div>
+                        <div style="font-size: 0.9rem; opacity: 0.9;">Global Platform</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contest Achievement -->
+            <div style="display: flex; align-items: center; background: white; padding: 40px; border-radius: 25px; box-shadow: 0 15px 40px rgba(0,0,0,0.1); border-left: 6px solid #f6ad55;">
+                <div style="background: linear-gradient(135deg, #f6ad55 0%, #ed8936 100%); width: 100px; height: 100px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 3rem; color: white; margin-right: 30px; flex-shrink: 0;">🥉</div>
+                <div>
+                    <h3 style="color: #2d3748; margin-bottom: 15px; font-size: 1.8rem; font-weight: 700;">Contest Recognition</h3>
+                    <p style="color: #4a5568; font-size: 1.2rem; line-height: 1.6; margin-bottom: 10px;">
+                        <strong style="color: #f6ad55;">4th Rank</strong> in <strong>Codecraft Contest</strong>
+                    </p>
+                    <p style="color: #718096; font-size: 1rem;">
+                        Organized by SAIT Club - Demonstrated strong algorithmic thinking and problem-solving skills
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <a href="mailto:swalawalkar30@gmail.com">Email</a>
+                <a href="tel:8446455414">Phone</a>
+                <a href="https://www.linkedin.com/in/shriram-walawalkar-a59244263/" target="_blank">LinkedIn</a>
+                <a href="https://github.com/shriram-walawalkar-123?tab=repositories" target="_blank">GitHub</a>
+                <a href="https://leetcode.com/u/swalawalkar30/" target="_blank">LeetCode</a>
+                <a href="https://www.codechef.com/users/geeks94" target="_blank">CodeChef</a>
+                <a href="https://www.geeksforgeeks.org/user/swalawalogm/" target="_blank">GeeksforGeeks</a>
+                <a href="https://codeforces.com/profile/swalawalkar" target="_blank">CodeForces</a>
+            </div>
+            <p>&copy; 2025 Shriram Walawalkar. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Active navigation highlighting
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-on-scroll');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards and sections
+        document.querySelectorAll('.project-card, .achievement-card, .experience-card, .skill-category, .certification-card').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
